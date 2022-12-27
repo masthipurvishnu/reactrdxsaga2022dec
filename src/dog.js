@@ -1,5 +1,6 @@
 import React from "react";
-
+import PropTypes from 'prop-types'
+import logo from './logo.svg';
 class Dog extends React.Component {
 
     onRequestDogTrigger = (event) => {
@@ -28,5 +29,12 @@ class Dog extends React.Component {
             </>
         )
     }
+}
+Dog.defaultProps = {
+    fetching: false,
+    dog: logo
+}
+Dog.propTypes = {
+    fetching: PropTypes.bool
 }
 export default Dog

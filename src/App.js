@@ -5,19 +5,36 @@ import './App.css';
 import { connect } from 'react-redux'
 import Header from './header'
 import Dog from './dog';
+import Counter from './components/Counter';
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showComp: 'Dog'
+    }
+  }
+  handleChangeComponent = (name) => {
+    this.state.showComp = name
+    this.forceUpdate()
+  }
   render() {
-    const { fetching, dog, handleRequestDogClick, error } = this.props;
-    console.log(dog);
+    const { fetching, dog, handleRequestDogClick, handleChangeComponent, error } = this.props;
     return (
       <div className='App'>
-        <Header />
+        <Header changeComponent={this.handleChangeComponent} />
         <main className='main'>
-          <Dog
-            dog={dog || logo}
-            fetching={fetching}
-            parentCallbackOnRequestDog={handleRequestDogClick}
-          />
+          {this.state.showComp === 'Dog' ?
+            <>
+              <div>Dog component</div>
+              <Dog
+                dog={dog || logo}
+                fetching={fetching}
+                parentCallbackOnRequestDog={handleRequestDogClick}
+              />
+            </>
+            : <div>Counter component</div>
+          }
+          <Counter />
         </main>
       </div>
     );

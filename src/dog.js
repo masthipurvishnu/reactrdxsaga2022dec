@@ -1,8 +1,15 @@
-import React from "react";
+import React, { createContext } from "react";
 import PropTypes from 'prop-types'
 import logo from './logo.svg';
-class Dog extends React.Component {
 
+export const ImageURLContext = createContext()
+class Dog extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
     onRequestDogTrigger = (event) => {
         this.props.parentCallbackOnRequestDog();
         event.preventDefault(); // DO WE REALLY NEED THIS here?
@@ -12,8 +19,8 @@ class Dog extends React.Component {
 
         return (
             <>
-                <img src={dog} className='dog-img' alt='logo' />
                 <h1 className='App-title'>Welcome to Dog Saga</h1>
+                <img src={dog} className='dog-img' alt='logo' />
                 {dog ? (
                     <p className='App-intro'>Keep clicking for new digs</p>
                 ) : (

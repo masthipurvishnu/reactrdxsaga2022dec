@@ -1,40 +1,51 @@
-import React, { Component } from 'react';
+import React, { createContext } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux'
 import Header from './header'
-import Dog from './dog';
+import Dog from './Dog';
 import Counter from './components/Counter';
+import DogDetails from './components/DogDetails';
+
+export const CountContext = createContext()
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showComp: 'Dog'
+      showComp: 'Dog',
+      impageURL: ''
     }
   }
   handleChangeComponent = (name) => {
     this.state.showComp = name
     this.forceUpdate()
   }
+  dogName = (url) => {
+    return (url?.substring(url?.indexOf('breeds') + 7, url?.lastIndexOf('/')))?.toUpperCase()
+  }
   render() {
-    const { fetching, dog, handleRequestDogClick, handleChangeComponent, error } = this.props;
+    const { fetching, dog, handleRequestDogClick, error } = this.props;
     return (
       <div className='App'>
         <Header changeComponent={this.handleChangeComponent} />
         <main className='main'>
           {this.state.showComp === 'Dog' ?
             <>
-              <div>Dog component</div>
               <Dog
                 dog={dog || logo}
                 fetching={fetching}
                 parentCallbackOnRequestDog={handleRequestDogClick}
               />
+              <CountContext.Provider value={this.dogName(dog)}>
+                <DogDetails />
+              </CountContext.Provider>
+
             </>
-            : <div>Counter component</div>
+            : <>
+              <Counter />
+            </>
           }
-          <Counter />
         </main>
       </div>
     );

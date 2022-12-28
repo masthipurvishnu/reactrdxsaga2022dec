@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactPropTypes } from "react";
 import PropTypes from 'prop-types';
-import logo from './logo.svg';
+import logo from './../logo.svg';
 class Header extends React.Component {
     constructor(props) {
         super(props)

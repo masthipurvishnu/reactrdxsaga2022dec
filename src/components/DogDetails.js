@@ -2,6 +2,7 @@ import React, { createContext, useContext } from 'react'
 import { Card, CardContent } from '@mui/material'
 
 import { CountContext } from '../App'
+import { connect } from 'react-redux'
 const DogDetails = (props) => {
     const imageUrl = useContext(CountContext)
     const cardStyles = {
@@ -28,5 +29,11 @@ const DogDetails = (props) => {
         </>
     )
 }
+const mapStateToProps = state => {
+    console.log('11111111111', JSON.stringify(state));
+    return {
+        dog: state.dog
+    }
 
-export default DogDetails
+}
+export default connect(mapStateToProps, null)(DogDetails)

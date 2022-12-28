@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux'
-import Header from './header'
-import Dog from './Dog';
+import Header from './components/Header'
+import Dog from './components/Dog';
 import Counter from './components/Counter';
 import DogDetails from './components/DogDetails';
 
@@ -33,7 +33,6 @@ class App extends React.Component {
           {this.state.showComp === 'Dog' ?
             <>
               <Dog
-                dog={dog || logo}
                 fetching={fetching}
                 parentCallbackOnRequestDog={handleRequestDogClick}
               />

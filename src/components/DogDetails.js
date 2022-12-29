@@ -12,13 +12,17 @@ const DogDetails = (props) => {
         margin: '10px'
     }
     const divStyle = {
-        textAlign: 'center'
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center'
     }
     console.log(imageUrl);
     return (
         <>
             <div style={divStyle}>
-                <Card sx={{ fontSize: 14, border: '1px solid red', textAlign: 'center' }}
+                <Card sx={{
+                    fontSize: 14, border: '1px solid red', textAlign: 'center'
+                }}
                     style={cardStyles}
                 >
                     <div>Dog details </div>
@@ -30,7 +34,6 @@ const DogDetails = (props) => {
     )
 }
 const mapStateToProps = state => {
-    console.log('11111111111', JSON.stringify(state));
     return {
         dog: state.dog
     }

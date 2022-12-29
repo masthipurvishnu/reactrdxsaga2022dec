@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# 
+## Parent to child communication
+through props
+## child to parent
+through prop callback events
+## Parent to down the line childern, in the tree like e.g. locale preference, UI theme?  
+using conetex..
+## grand/great grand childer to top parent?
+using Redux/Store
+## siblings?
+1. Through parent
+2. using Redux/Store
+## one component to any other component in the application
+using Redux/Store
+
+We have to find the closest common ancestor and next passing through all descendant components till state will be pass to proper.
+How to resolve it in clean way? Keeping components clean and managed.
+Redux/Store is another way if we have this option, if not?
+Event Emitter is the answer. Very popular library from node.js.
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -58,13 +78,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Advanced Configuration
-
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

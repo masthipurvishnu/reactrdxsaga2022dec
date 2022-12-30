@@ -1,12 +1,12 @@
 import React from "react";
-import { ReactPropTypes } from "react";
 import PropTypes from 'prop-types';
 import logo from './../logo.svg';
 class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            showComponent: 'Dog'
+            showComponent: 'Dog',
+            mouseHoverFlag: false
         }
     }
     handlerDogs = () => {
@@ -15,11 +15,21 @@ class Header extends React.Component {
     handlerCounter = () => {
         this.props.changeComponent('Counter')
     }
+    onMouseHover = () => {
+        console.log('on mouse hover');
+        this.setState({ mouseHoverFlag: true })
+    }
+    onMouseOut = () => {
+        console.log('on mouse out');
+        this.setState({ mouseHoverFlag: false })
+    }
     render() {
-
+        const headerStyle = {
+            backgroundColor: this.state?.mouseHoverFlag ? 'red' : 'blue'
+        }
         return (
             <>
-                <header className='App-header'>
+                <header onMouseOut={this.onMouseOut} onMouseOver={this.onMouseHover} style={headerStyle} className='App-header'>
                     <div style={{ textAlign: 'left', paddingTop: '20px' }}>
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>

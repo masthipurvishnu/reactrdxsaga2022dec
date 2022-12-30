@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Card, CardContent } from '@mui/material'
 
 import { CountContext } from '../App'
@@ -16,7 +16,6 @@ const DogDetails = (props) => {
         display: 'flex',
         justifyContent: 'center'
     }
-    console.log(imageUrl);
     return (
         <>
             <div style={divStyle}>
@@ -26,8 +25,7 @@ const DogDetails = (props) => {
                     style={cardStyles}
                 >
                     <div>Dog details </div>
-
-                    <CardContent sx={{ fontSize: 12 }}>URL: {imageUrl}</CardContent>
+                    <CardContent sx={{ fontSize: 12 }}>Name: {imageUrl}</CardContent>
                 </Card>
             </div>
         </>

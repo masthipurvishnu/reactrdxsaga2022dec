@@ -52,7 +52,6 @@ const mapStateToProps = state => {
     }
 }
 const mapDispatchToProps = dispatch => {
-    console.log('121212');
     return {
         handleRequestDog: () => dispatch({ type: 'API_CALL_REQUEST' })
     }

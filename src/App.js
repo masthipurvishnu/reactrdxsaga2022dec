@@ -7,13 +7,17 @@ import Header from './components/Header'
 import Dog from './components/Dog';
 import Counter from './components/Counter';
 import DogDetails from './components/DogDetails';
+import CounterClass from './components/CounterClass';
+import ParentComponent from './components/Parent';
+import Child1 from './components/Child1';
+import Child2 from './components/Child2';
 
 export const CountContext = createContext()
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showComp: 'Dog',
+      showComp: 'Counter',
       impageURL: ''
     }
   }
@@ -43,6 +47,16 @@ class App extends React.Component {
             </>
             : <>
               <Counter />
+              <CounterClass />
+              <div style={{ display: 'inline-block', border: '1px solid red', margin: '20px' }}>
+                <ParentComponent flag={true} />
+              </div>
+              <div style={{ display: 'inline-block', border: '1px solid green' }}>
+                <ParentComponent flag={false} >
+                  <Child1 name={'Raja'} />
+                  <Child2 location={'Irving'} />
+                </ParentComponent>
+              </div>
             </>
           }
         </main>

@@ -18,7 +18,38 @@ How to resolve it in clean way? Keeping components clean and managed.
 Redux/Store is another way if we have this option, if not?
 Event Emitter is the answer. Very popular library from node.js.
 
+## Top to down in a Tree nodes
+Using context
 
+## dynamically pass props to childern
+using {props.children} (parent to sw3 & child2 components in this examples)
+p
+## when a prop changed from its parent, how will the component updates the data?
+Sol: forceUpdate() -- ?
+
+## useEffect (callback[, dependency])
+```
+A) Dependency - Not provided: the side-effect runs after every rendering.
+like onMounted --?????
+    useEffect(() => {
+        console.log('in useeffect - counter value', counter)
+    }) 
+B) An empty array []: the side-effect runs once after the initial rendering.
+Like componentDidMount
+    useEffect(() => {
+        console.log('An empty array [] - in useeffect - counter value', counter)
+    }, []) 
+    useEffect(() => {
+        return () => { // like componentUnmouted
+        console.log('An empty array [] - in useeffect with return - counter value', counter)
+        }
+    }, [])
+C) Has props or state values [prop1, prop2, ..., state1, state2]: the side-effect runs only when any depenendecy value changes.
+// componentDidUpdate..
+    useEffect(() => {
+        console.log('in useeffect - counter value', counter)
+    }, [counter]) // executes whenever counter value changed
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 
 const Counter = () => {
@@ -11,6 +11,31 @@ const Counter = () => {
     }
     const btnStyle = {
         margin: '10px'
+    }
+    // componentDidUpdate
+    useEffect(() => {
+        console.log('Dependency - not provided', counter)
+    }, [counter])
+    // componentDidMount
+    // useEffect(() => {
+    //     // document.title = `Your counter ${counter}`
+    //     // document.addEventListener('click', handleDocClick);
+    //     // return () => {
+    //     //     document.removeEventListener(handleDocClick);
+    //     // }
+    // }, [])
+
+    // componentDidMount
+    // useEffect(() => {
+    //     // document.title = `Counter value ${counter}`
+    //     // document.addEventListener('click', handleDocClick)
+    //     // return () => {
+    //     //     document.removeEventListener('click');
+    //     // }
+    // }, [counter])
+
+    const handleDocClick = () => {
+        alert('you clicked document...!')
     }
     return (
         <>

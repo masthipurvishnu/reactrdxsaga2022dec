@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import logo from './../logo.svg';
+import detectHover from "./HOC-DetectHover";
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
@@ -26,11 +28,11 @@ class Header extends React.Component {
     }
     render() {
         const headerStyle = {
-            backgroundColor: this.state?.mouseHoverFlag ? 'red' : 'blue'
+            backgroundColor: this.props?.hovered ? 'red' : 'blue'
         }
         return (
             <>
-                <header onMouseOut={this.onMouseOut} onMouseOver={this.onMouseHover} style={headerStyle} className='App-header'>
+                <header style={headerStyle} className='App-header'>
                     <div style={{ textAlign: 'left', paddingTop: '20px' }}>
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
@@ -49,4 +51,4 @@ class Header extends React.Component {
 Header.protoTypes = {
     changeComponent: PropTypes.func
 };
-export default Header
+export default detectHover(Header)

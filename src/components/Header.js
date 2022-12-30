@@ -4,6 +4,7 @@ import logo from './../logo.svg';
 class Header extends React.Component {
     constructor(props) {
         super(props)
+        console.log(JSON.stringify(props));
         this.state = {
             showComponent: 'Dog',
             mouseHoverFlag: false

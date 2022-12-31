@@ -50,6 +50,26 @@ C) Has props or state values [prop1, prop2, ..., state1, state2]: the side-effec
         console.log('in useeffect - counter value', counter)
     }, [counter]) // executes whenever counter value changed
 ```
+## what is HOC?
+Is a component which takes a component as argument, and enhances 
+its behaviour/features... 
+## what is render prop and what is it good for?
+DetectHover1 & Header => HOC
+DetectHover2 & Footer => render props ---?
+(render props looks like old react way.. still we can use them here and there..)
+
+## What are hooks and what problems it can solve?
+Hooks are life cycle methods. To find state, didMound, Didupdate etc 
+
+
+
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

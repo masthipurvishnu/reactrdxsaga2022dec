@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import logo from './../logo.svg';
 import detectHover from "./HOC-DetectHover";
+import { detectHover1 } from "./HOC-DetectHover";
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
-        console.log(JSON.stringify(props));
         this.state = {
             showComponent: 'Dog',
             mouseHoverFlag: false
@@ -51,4 +51,4 @@ class Header extends React.Component {
 Header.protoTypes = {
     changeComponent: PropTypes.func
 };
-export default detectHover(Header)
+export default detectHover1(Header) 

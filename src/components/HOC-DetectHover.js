@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const detectHover = (Component) => {
+const detectHover1 = (Component) => {
 
     return (props) => {
         const [hovered, setHovered] = useState(false)
@@ -14,4 +14,16 @@ const detectHover = (Component) => {
         )
     }
 }
-export default detectHover
+
+const DetectHover2 = (props) => {
+    const [hovered, setHovered] = useState(false)
+    return (
+        <div
+            onMouseOver={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+        >
+            {props.render(hovered)}
+        </div>
+    )
+}
+export { detectHover1, DetectHover2 }

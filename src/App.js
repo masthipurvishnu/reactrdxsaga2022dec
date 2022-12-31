@@ -1,5 +1,4 @@
 import React, { createContext } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux'
@@ -11,6 +10,8 @@ import CounterClass from './components/CounterClass';
 import ParentComponent from './components/Parent';
 import Child1 from './components/Child1';
 import Child2 from './components/Child2';
+import Footer from './components/Footer';
+import VButton from './components/CustomHook/VButton';
 
 export const CountContext = createContext()
 class App extends React.Component {
@@ -48,6 +49,9 @@ class App extends React.Component {
             : <>
               <Counter />
               <CounterClass />
+              <div>
+                <VButton />
+              </div>
               <div style={{ display: 'inline-block', border: '1px solid red', margin: '20px' }}>
                 <ParentComponent flag={true} />
               </div>
@@ -60,6 +64,7 @@ class App extends React.Component {
             </>
           }
         </main>
+        <Footer />
       </div>
     );
   }

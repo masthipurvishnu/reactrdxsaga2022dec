@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
 import Welcome from "./Welcome";
@@ -42,9 +42,11 @@ const Counter = () => {
     const handleDocClick = () => {
         alert('you clicked document...!')
     }
+    const getFun = useCallback(() => { }, []) /// when passed as normal fun it creates a new fun everytie and renders the components.
+    // when you pass useCallback memorized fun, it refs to the location and remembers...
     return (
         <>
-            <Welcome name={'counter'} />
+            <Welcome name={getFun} />
             <TextField label="CounterNumber"
                 type={'number'}
                 InputLabelProps={{ shrink: true }}

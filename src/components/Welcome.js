@@ -13,8 +13,8 @@ const Welcome = memo((props) => {
     )
 })
 
-Welcome.propTypes = {
-    name: PropTypes.string.isRequired
-}
+// Welcome.propTypes = {
+//     name: PropTypes.string.isRequired
+// }
 
 export default Welcome

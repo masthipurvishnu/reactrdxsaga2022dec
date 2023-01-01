@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 
-const Welcome = (props) => {
+const Welcome = memo((props) => {
     console.log('Welcome component rendered1', props.name);
     useMemo(() => {
         console.log('Welcome component rendered2', props.name);
@@ -11,7 +11,7 @@ const Welcome = (props) => {
             <h1>Welcome to {props?.name} component..!</h1>
         </>
     )
-}
+})
 
 Welcome.propTypes = {
     name: PropTypes.string.isRequired

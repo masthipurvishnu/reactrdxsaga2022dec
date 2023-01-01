@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
 import Welcome from "./Welcome";
@@ -42,11 +42,22 @@ const Counter = () => {
     const handleDocClick = () => {
         alert('you clicked document...!')
     }
+
+    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const largeNumber = () => {
+        console.log('im working');
+        return Math.max(...array)
+    }
+    // without useMemo, the largeNumber executes everytime a state/prop change. 
+    const memorizeLargeNum = useMemo(largeNumber, [])
+
+
     const getFun = useCallback(() => { }, []) /// when passed as normal fun it creates a new fun everytie and renders the components.
     // when you pass useCallback memorized fun, it refs to the location and remembers...
     return (
         <>
             <Welcome name={getFun} />
+            <h1>Large number: {memorizeLargeNum}</h1>
             <TextField label="CounterNumber"
                 type={'number'}
                 InputLabelProps={{ shrink: true }}

@@ -7,7 +7,6 @@ const Counter = () => {
     const [counter, setCounter] = useState(0)
     const handleIncrement = () => {
         setCounter(counter => counter + 2)
-        setCounter(() => 9)
     }
     const handleDecrement = () => {
         setCounter(counter => counter - 1)
@@ -45,7 +44,7 @@ const Counter = () => {
     }
     return (
         <>
-            <Welcome name={'Counter'} />
+            <Welcome name={'counter'} />
             <TextField label="CounterNumber"
                 type={'number'}
                 InputLabelProps={{ shrink: true }}

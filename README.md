@@ -1,16 +1,17 @@
 # 
-## Parent to child communication
+### Parent to child communication
+**Answer:**
 through props
-## child to parent
+### Child to parent
 through prop callback events
-## Parent to down the line childern, in the tree like e.g. locale preference, UI theme?  
+### Parent to down the line childern, in the tree like e.g. locale preference, UI theme?  
 using conetex..
-## grand/great grand childer to top parent?
+### grand/great grand childer to top parent?
 using Redux/Store
-## siblings?
+### siblings?
 1. Through parent
 2. using Redux/Store
-## one component to any other component in the application
+### one component to any other component in the application
 using Redux/Store
 
 We have to find the closest common ancestor and next passing through all descendant components till state will be pass to proper.
@@ -18,16 +19,16 @@ How to resolve it in clean way? Keeping components clean and managed.
 Redux/Store is another way if we have this option, if not?
 Event Emitter is the answer. Very popular library from node.js.
 
-## Top to down in a Tree nodes
+### Top to down in a Tree nodes
 Using context
 
-## dynamically pass props to childern
+### dynamically pass props to childern
 using {props.children} (parent to sw3 & child2 components in this examples)
 p
-## when a prop changed from its parent, how will the component updates the data?
+### when a prop changed from its parent, how will the component updates the data?
 Sol: forceUpdate() -- ?
 
-## useEffect (callback[, dependency])
+### useEffect (callback[, dependency])
 ```
 A) Dependency - Not provided: the side-effect runs after every rendering.
 like onMounted --?????
@@ -50,25 +51,16 @@ C) Has props or state values [prop1, prop2, ..., state1, state2]: the side-effec
         console.log('in useeffect - counter value', counter)
     }, [counter]) // executes whenever counter value changed
 ```
-## what is HOC?
+### what is HOC?
 Is a component which takes a component as argument, and enhances 
 its behaviour/features... 
-## what is render prop and what is it good for?
+### what is render prop and what is it good for?
 DetectHover1 & Header => HOC
 DetectHover2 & Footer => render props ---?
 (render props looks like old react way.. still we can use them here and there..)
 
-## What are hooks and what problems it can solve?
+### What are hooks and what problems it can solve?
 Hooks are life cycle methods. To find state, didMound, Didupdate etc 
-
-
-
-
-
-
-
-
-
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

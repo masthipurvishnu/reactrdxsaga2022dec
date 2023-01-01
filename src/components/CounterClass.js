@@ -3,7 +3,7 @@ import { Button, Card, CardContent } from '@mui/material'
 
 class CounterClass extends React.Component {
     constructor(props) {
-        super(props)
+        super(props) //need this only if you want to use props in consturetor otherwise not requered...
         this.state = {
             count: 0
         }

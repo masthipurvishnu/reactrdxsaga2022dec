@@ -48,7 +48,7 @@ class Header extends React.Component {
         )
     }
 }
-Header.protoTypes = {
+Header.propTypes = {
     changeComponent: PropTypes.func
 };
 export default detectHover1(Header) 

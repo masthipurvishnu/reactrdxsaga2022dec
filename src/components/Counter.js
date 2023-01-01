@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
+import Welcome from "./Welcome";
 
 const Counter = () => {
     const [counter, setCounter] = useState(0)
     const handleIncrement = () => {
         setCounter(counter => counter + 2)
+        setCounter(() => 9)
     }
     const handleDecrement = () => {
         setCounter(counter => counter - 1)
+    }
+    const handleChange = (event) => {
+        setCounter(() => event.target.value)
     }
     const btnStyle = {
         margin: '10px'
@@ -39,7 +45,13 @@ const Counter = () => {
     }
     return (
         <>
-            <h1>Welcome to Counter Component ..!</h1>
+            <Welcome name={'Counter'} />
+            <TextField label="CounterNumber"
+                type={'number'}
+                InputLabelProps={{ shrink: true }}
+                value={counter}
+                onChange={handleChange}
+            ></TextField>
             <div>Counter : {counter}</div>
             <Button
                 variant="outlined"

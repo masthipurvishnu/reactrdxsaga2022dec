@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import logo from './../logo.svg';
 import { connect } from "react-redux";
 
-export const ImageURLContext = createContext()
 class Dog extends React.Component {
     constructor(props) {
         super(props)

@@ -4,7 +4,7 @@ import { Card, CardContent } from '@mui/material'
 import { CountContext } from '../App'
 import { connect } from 'react-redux'
 const DogDetails = (props) => {
-    const imageUrl = useContext(CountContext)
+    const name = useContext(CountContext)
     const cardStyles = {
         textAlign: 'center',
         height: '200px',
@@ -25,7 +25,7 @@ const DogDetails = (props) => {
                     style={cardStyles}
                 >
                     <div>Dog details </div>
-                    <CardContent sx={{ fontSize: 12 }}>Name: {imageUrl}</CardContent>
+                    <CardContent sx={{ fontSize: 12 }}>Name: {name}</CardContent>
                 </Card>
             </div>
         </>

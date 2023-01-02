@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import logo from './../logo.svg';
 import detectHover from "./HOC-DetectHover";
 import { detectHover1 } from "./HOC-DetectHover";
+import { Button } from "@mui/material";
 
 class Header extends React.Component {
     constructor(props) {
@@ -37,11 +38,11 @@ class Header extends React.Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
                     <div>
-                        <button onClick={this.handlerDogs}>Dogs</button>
-                        <button
+                        <Button variant="contained" onClick={this.handlerDogs}>Dogs</Button>
+                        <Button variant="contained"
                             style={{ margin: '0 5px' }}
                             onClick={this.handlerCounter}
-                        >Counter</button>
+                        >Counter</Button>
                     </div>
                 </header>
             </>

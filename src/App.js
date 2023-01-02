@@ -12,6 +12,8 @@ import Child1 from './components/Child1';
 import Child2 from './components/Child2';
 import Footer from './components/Footer';
 import VButton from './components/CustomHook/VButton';
+import { Grid, ListItem } from '@mui/material';
+import CustomForm from './components/refs/CustomForm';
 
 export const CountContext = createContext()
 class App extends React.Component {
@@ -47,11 +49,22 @@ class App extends React.Component {
 
             </>
             : <>
-              <Counter />
-              <CounterClass />
-              <div>
-                <VButton />
-              </div>
+              <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid border={'1px solid red'} margin={2} item xs>
+                  <CounterClass />
+                </Grid>
+                <Grid border={'1px solid red'} margin={2}
+                  item xs={4}>
+                  <Counter />
+                </Grid>
+                <Grid border={'1px solid red'} margin={2}
+                  item xs>
+                  <div>
+                    <VButton />
+                    <CustomForm />
+                  </div>
+                </Grid>
+              </Grid>
               <div style={{ display: 'inline-block', border: '1px solid red', margin: '20px' }}>
                 <ParentComponent flag={true} />
               </div>

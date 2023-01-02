@@ -12,13 +12,13 @@ class CounterClass extends React.Component {
         this.setState({ count: this.state.count + 1 })
     }
     componentDidMount() {
-        document.title = `You clicked ${this.state.count} times`
+        document.title = `componentDidMount You clicked ${this.state.count} times`
     }
     componentDidUpdate() {
-        document.title = `Yes, You clicked ${this.state.count} times`
+        document.title = `componentDidUpdate Yes, You clicked ${this.state.count} times`
     }
     componentWillUnmount() {
-        document.title = `No, You clicked ${this.state.count} times`
+        document.title = `componentWillUnmount No, You clicked ${this.state.count} times`
     }
     render() {
 

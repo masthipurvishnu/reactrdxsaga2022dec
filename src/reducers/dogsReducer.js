@@ -1,6 +1,6 @@
 import { act } from "react-dom/test-utils";
 
-import logo from './logo.svg';
+import logo from './../logo.svg';
 //action types
 const API_CALL_REQUEST = "API_CALL_REQUEST";
 const API_CALL_SUCCESS = "API_CALL_SUCCESS";
@@ -12,7 +12,7 @@ const initialState = {
     error: null
 };
 
-const reducer = (state = initialState, action) => {
+const dogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case API_CALL_REQUEST:
             return {
@@ -37,4 +37,4 @@ const reducer = (state = initialState, action) => {
             return state
     }
 };
-export default reducer
+export default dogsReducer

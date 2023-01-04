@@ -1,14 +1,12 @@
 import React, { createContext } from "react";
 import PropTypes from 'prop-types'
-import logo from './../logo.svg';
+// import logo from './../logo.svg';
 import { connect } from "react-redux";
 
 class Dog extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
+        this.state = {}
     }
     onRequestDogTrigger = (event) => {
         this.props.parentCallbackOnRequestDog();
@@ -38,8 +36,7 @@ class Dog extends React.Component {
     }
 }
 Dog.defaultProps = {
-    fetching: false,
-    dog: logo
+    fetching: false
 }
 Dog.propTypes = {
     fetching: PropTypes.bool

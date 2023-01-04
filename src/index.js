@@ -9,15 +9,15 @@ import { createStore, applyMiddleware, compose } from "redux"
 import createSagaMiddleware from '@redux-saga/core';
 import { Provider } from 'react-redux';
 
-import reducer from './redux'
-import { watcherSaga } from './saga';
+import dogsReducer from './reducers/dogsReducer'
+import { watcherSaga } from './saga/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 let store = createStore(
-  reducer,
+  dogsReducer,
   applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(watcherSaga);

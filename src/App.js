@@ -4,9 +4,9 @@ import './App.css';
 import { connect } from 'react-redux'
 import Header from './components/Header'
 import Dog from './components/Dog';
-import Counter from './components/Counter';
+import Counter from './components/Counter/Counter';
 import DogDetails from './components/DogDetails';
-import CounterClass from './components/CounterClass';
+import CounterClass from './components/Counter/CounterClass';
 import ParentComponent from './components/Parent';
 import Child1 from './components/Child1';
 import Child2 from './components/Child2';
@@ -20,8 +20,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      showComp: 'Counter',
-      impageURL: ''
+      showComp: 'Counter'
     }
   }
   handleChangeComponent = (name) => {
@@ -83,6 +82,7 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = state => {
+  console.log(JSON.stringify(state));
   return {
     fetching: state.fetching,
     dog: state.dog,
@@ -90,9 +90,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleRequestDogClick: () => dispatch({ type: "API_CALL_REQUEST" })
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

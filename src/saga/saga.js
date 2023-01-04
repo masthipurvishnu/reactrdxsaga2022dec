@@ -7,10 +7,15 @@ function fetchDog() {
         url: 'https://dog.ceo/api/breeds/image/random'
     })
 }
-
+function* getCounter() {
+    const counter = 0
+    put({ type: 'GET_COUNTER_SUCCESS', counter })
+}
 export function* watcherSaga() {
     yield takeLatest("API_CALL_REQUEST", workerSaga);
+    yield takeLatest('GET_COUNTER', getCounter)
 }
+
 export function* workerSaga() {
     try {
         const response = yield call(fetchDog)

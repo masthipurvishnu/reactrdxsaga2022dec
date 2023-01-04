@@ -17,6 +17,7 @@ const Counter = (props) => {
     }
     const handleDecrement = () => {
         setCounter(counter => counter - 1)
+        dispatch({ type: 'DECREMENT_COUNTER_REQUEST', counter1 })
     }
     const handleChange = (event) => {
         setCounter(() => event.target.value)

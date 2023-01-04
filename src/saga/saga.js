@@ -12,14 +12,20 @@ function* getCounter() {
     yield put({ type: 'GET_COUNTER_SUCCESS', counter })
 }
 function* incrementCounter(payload) {
-    const counterValue = payload.counter1 + 1
+    const counterValue = payload.counter1 + 10
 
     yield put({ type: 'INCREMENT_COUNTER_SUCCESS', counter: counterValue })
+}
+function* decrementCounter(payload) {
+    const counterValue = payload.counter1 - 5
+
+    yield put({ type: 'DECREMENT_COUNTER_SUCCESS', counter: counterValue })
 }
 export function* watcherSaga() {
     yield takeLatest("API_CALL_REQUEST", workerSaga);
     yield takeLatest('GET_COUNTER', getCounter)
     yield takeLatest('INCREMENT_COUNTER_REQUEST', incrementCounter)
+    yield takeLatest('DECREMENT_COUNTER_REQUEST', decrementCounter)
 }
 
 export function* workerSaga() {

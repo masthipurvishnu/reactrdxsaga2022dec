@@ -18,7 +18,7 @@ const sagaMiddleware = createSagaMiddleware();
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const rootReducer = combineReducers({ dogsReducer, counterReducer })
 let store = createStore(
-  dogsReducer, //here this works, if I pass rootReducer is it not working.. why?
+  counterReducer, //here this works, if I pass rootReducer is it not working.. why?
   applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(watcherSaga);

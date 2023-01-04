@@ -8,12 +8,18 @@ function fetchDog() {
     })
 }
 function* getCounter() {
-    const counter = 0
-    put({ type: 'GET_COUNTER_SUCCESS', counter })
+    const counter = 110
+    yield put({ type: 'GET_COUNTER_SUCCESS', counter })
+}
+function* incrementCounter(payload) {
+    const counterValue = payload.counter1 + 1
+
+    yield put({ type: 'INCREMENT_COUNTER_SUCCESS', counter: counterValue })
 }
 export function* watcherSaga() {
     yield takeLatest("API_CALL_REQUEST", workerSaga);
     yield takeLatest('GET_COUNTER', getCounter)
+    yield takeLatest('INCREMENT_COUNTER_REQUEST', incrementCounter)
 }
 
 export function* workerSaga() {

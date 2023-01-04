@@ -82,7 +82,6 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = state => {
-  console.log(JSON.stringify(state));
   return {
     fetching: state.fetching,
     dog: state.dog,

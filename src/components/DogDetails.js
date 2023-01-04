@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Card, CardContent } from '@mui/material'
 
 import { CountContext } from '../App'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 const DogDetails = (props) => {
     const name = useContext(CountContext)
     const cardStyles = {
@@ -16,6 +16,7 @@ const DogDetails = (props) => {
         display: 'flex',
         justifyContent: 'center'
     }
+    const dog = useSelector(state => state.dog)
     return (
         <>
             <div style={divStyle}>
@@ -26,15 +27,18 @@ const DogDetails = (props) => {
                 >
                     <div>Dog details </div>
                     <CardContent sx={{ fontSize: 12 }}>Name: {name}</CardContent>
+                    <CardContent sx={{ fontSize: 12 }}>URL: {dog}</CardContent>
+                    {/* <CardContent sx={{ fontSize: 12 }}>Name: {props.dog}</CardContent> */}
                 </Card>
             </div>
         </>
     )
 }
-const mapStateToProps = state => {
-    return {
-        dog: state.dog
-    }
-
-}
-export default connect(mapStateToProps, null)(DogDetails)
+// const mapStateToProps = state => {
+//     return {
+//         dog: state.dog
+//     }
+// }
+// export default connect(mapStateToProps, null)(DogDetails)
+// export default connect(null, null)(DogDetails) // this also works same as below line
+export default DogDetails

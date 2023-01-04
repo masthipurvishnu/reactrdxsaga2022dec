@@ -2,9 +2,8 @@ import { PropTypes } from "prop-types";
 import React, { memo, useMemo } from "react";
 
 const Welcome = memo((props) => {
-    console.log('Welcome component rendered1', props.name);
     useMemo(() => {
-        console.log('Welcome component rendered2', props.name);
+        // console.log('Welcome component rendered', props.name);
     }, [props.name])
     return (
         <>

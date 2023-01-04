@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import PropTypes from 'prop-types'
-// import logo from './../logo.svg';
+import logo from './../logo.svg';
 import { connect } from "react-redux";
 
 class Dog extends React.Component {
@@ -36,7 +36,8 @@ class Dog extends React.Component {
     }
 }
 Dog.defaultProps = {
-    fetching: false
+    fetching: false,
+    dog: logo
 }
 Dog.propTypes = {
     fetching: PropTypes.bool

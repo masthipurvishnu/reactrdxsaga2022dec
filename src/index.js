@@ -5,19 +5,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { createStore, applyMiddleware, compose } from "redux"
+import { createStore, applyMiddleware, compose, combineReducers } from "redux"
 import createSagaMiddleware from '@redux-saga/core';
 import { Provider } from 'react-redux';
 
 import dogsReducer from './reducers/dogsReducer'
+import counterReducer from './reducers/counterReducer'
 import { watcherSaga } from './saga/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
+const rootReducer = combineReducers({ dogsReducer, counterReducer })
 let store = createStore(
-  dogsReducer,
+  dogsReducer, //here this works, if I pass rootReducer is it not working.. why?
   applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(watcherSaga);

@@ -9,11 +9,11 @@ function fetchDog() {
 }
 function* getCounter() {
     const counter = 110
+    console.log(counter);
     yield put({ type: 'GET_COUNTER_SUCCESS', counter })
 }
 function* incrementCounter(payload) {
     const counterValue = payload.counter1 + 10
-
     yield put({ type: 'INCREMENT_COUNTER_SUCCESS', counter: counterValue })
 }
 function* decrementCounter(payload) {
@@ -21,11 +21,24 @@ function* decrementCounter(payload) {
 
     yield put({ type: 'DECREMENT_COUNTER_SUCCESS', counter: counterValue })
 }
+const getUsers = () => {
+    const url = 'https://jsonplaceholder.typicode.com/users'
+    return axios({
+        method: 'GET',
+        url: url
+    })
+}
+function* getSearchItems() {
+    const items = yield call(getUsers)
+    console.log(items.data);
+    yield put({ type: 'SEARCH_ITEMS_RETRIEVE_SUCCESS', items: items.data })
+}
 export function* watcherSaga() {
     yield takeLatest("API_CALL_REQUEST", workerSaga);
     yield takeLatest('GET_COUNTER', getCounter)
     yield takeLatest('INCREMENT_COUNTER_REQUEST', incrementCounter)
     yield takeLatest('DECREMENT_COUNTER_REQUEST', decrementCounter)
+    yield takeLatest('SEARCH_ITEMS_RETRIEVE', getSearchItems)
 }
 
 export function* workerSaga() {

@@ -11,14 +11,16 @@ import { Provider } from 'react-redux';
 
 import dogsReducer from './reducers/dogsReducer'
 import counterReducer from './reducers/counterReducer'
+import searchReducer from './reducers/searchReducer'
 import { watcherSaga } from './saga/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const rootReducer = combineReducers({ dogsReducer, counterReducer })
+const rootReducer = combineReducers({ dogsReducer, counterReducer, searchReducer })
+//COMBINEREDUCER is not wokring - need to check this later
 let store = createStore(
-  counterReducer, //here this works, if I pass rootReducer is it not working.. why?
+  rootReducer,
   applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(watcherSaga);

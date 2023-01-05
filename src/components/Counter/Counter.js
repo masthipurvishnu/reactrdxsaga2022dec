@@ -10,7 +10,9 @@ const Counter = (props) => {
     }
     const dispatch = useDispatch()
     const [counter, setCounter] = useState(0)
-    const counter1 = useSelector(state => state.counter)
+    const counter1 = useSelector(state => {
+        return state.counterReducer.counter
+    })
     const handleIncrement = () => {
         setCounter(counter => counter + 2)
         dispatch({ type: 'INCREMENT_COUNTER_REQUEST', counter1 })

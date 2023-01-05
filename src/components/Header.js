@@ -19,6 +19,9 @@ class Header extends React.Component {
     handlerCounter = () => {
         this.props.changeComponent('Counter')
     }
+    handlerSearch = () => {
+        this.props.changeComponent('Search')
+    }
     onMouseHover = () => {
         console.log('on mouse hover');
         this.setState({ mouseHoverFlag: true })
@@ -39,10 +42,8 @@ class Header extends React.Component {
                     </div>
                     <div>
                         <Button variant="contained" onClick={this.handlerDogs}>Dogs</Button>
-                        <Button variant="contained"
-                            style={{ margin: '0 5px' }}
-                            onClick={this.handlerCounter}
-                        >Counter</Button>
+                        <Button variant="contained" style={{ margin: '0 5px' }} onClick={this.handlerCounter}>Counter</Button>
+                        <Button variant="contained" style={{ margin: '0 5px' }} onClick={this.handlerSearch}>Search</Button>
                     </div>
                 </header>
             </>

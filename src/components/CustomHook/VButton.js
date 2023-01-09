@@ -17,6 +17,7 @@ const VButton = () => {
             >
                 Custom Button
             </Button>
+            <p>Custom Button with custom hook with refs</p>
 
         </>
     )

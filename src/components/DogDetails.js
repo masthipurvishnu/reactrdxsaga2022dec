@@ -3,8 +3,10 @@ import { Card, CardContent } from '@mui/material'
 
 import { CountContext } from '../App'
 import { connect, useSelector } from 'react-redux'
+import { DogContext } from './Dog'
 const DogDetails = (props) => {
-    const name = useContext(CountContext)
+    // const name = useContext(CountContext)
+    const name = useContext(DogContext)
     const cardStyles = {
         textAlign: 'center',
         height: '200px',
@@ -16,7 +18,7 @@ const DogDetails = (props) => {
         display: 'flex',
         justifyContent: 'center'
     }
-    const dog = useSelector(state => state.dog)
+    const dog = useSelector(state => state.dogsReducer.dog)
     return (
         <>
             <div style={divStyle}>
@@ -26,8 +28,8 @@ const DogDetails = (props) => {
                     style={cardStyles}
                 >
                     <div>Dog details </div>
-                    <CardContent sx={{ fontSize: 12 }}>Name: {name}</CardContent>
-                    <CardContent sx={{ fontSize: 12 }}>URL: {dog}</CardContent>
+                    <CardContent sx={{ fontSize: 12 }}>Name: {name}</CardContent> {/* name comming from context */}
+                    <CardContent sx={{ fontSize: 12 }}>URL: {dog}</CardContent> {/* url comming from reducer through useSelector */}
                     {/* <CardContent sx={{ fontSize: 12 }}>Name: {props.dog}</CardContent> */}
                 </Card>
             </div>

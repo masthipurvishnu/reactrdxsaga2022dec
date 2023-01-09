@@ -15,6 +15,7 @@ import VButton from './components/CustomHook/VButton';
 import { Grid, ListItem } from '@mui/material';
 import CustomForm from './components/refs/CustomForm';
 import Search from './components/Search/Search';
+import AppRouter from './Router/AppRouter';
 
 export const CountContext = createContext()
 class App extends React.Component {
@@ -48,7 +49,8 @@ class App extends React.Component {
         )
       case 'Counter':
         return (
-          <>COUNTER
+          <>
+            COUNTER
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <Grid border={'1px solid red'} margin={2} item xs>
                 <CounterClass />
@@ -88,22 +90,34 @@ class App extends React.Component {
         )
     }
   }
+  blogPosts = {
+    '1': {
+      title: "First Blog Post",
+      description: "Lorem ipsum dolor..."
+    },
+    '2': {
+      title: "Second Blog Post",
+      description: "Hello React Router V6..."
+    }
+  }
   render() {
     const { fetching, dog, handleRequestDogClick, error } = this.props;
     return (
-      <div className='App'>
-        <Header changeComponent={this.handleChangeComponent} />
-        <main className='main'>
-          {this.renderSwitch()}
-          {this.state.showComp === 'Dog' ?
-            <>
-            </>
-            : <>
-            </>
-          }
-        </main>
-        <Footer />
-      </div>
+      <AppRouter>
+        <div className='App'>
+          <Header changeComponent={this.handleChangeComponent} />
+          <main className='main'>
+            {this.renderSwitch()}
+            {this.state.showComp === 'Dog' ?
+              <>
+              </>
+              : <>
+              </>
+            }
+          </main>
+          <Footer />
+        </div>
+      </AppRouter>
     );
   }
 }

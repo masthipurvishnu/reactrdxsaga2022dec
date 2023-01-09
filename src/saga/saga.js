@@ -21,7 +21,13 @@ function* decrementCounter(payload) {
 
     yield put({ type: 'DECREMENT_COUNTER_SUCCESS', counter: counterValue })
 }
-const getUsers = () => {
+const getUsers = async () => {
+    const url = 'https://jsonplaceholder.typicode.com/users'
+    const res = await fetch(url)
+    const data = await res.json()
+    return data
+}
+const getUsers1 = () => {
     const url = 'https://jsonplaceholder.typicode.com/users'
     return axios({
         method: 'GET',
@@ -30,8 +36,9 @@ const getUsers = () => {
 }
 function* getSearchItems() {
     const items = yield call(getUsers)
-    console.log(items.data);
-    yield put({ type: 'SEARCH_ITEMS_RETRIEVE_SUCCESS', items: items.data })
+    yield put({ type: 'SEARCH_ITEMS_RETRIEVE_SUCCESS', items: items })
+    //with axios
+    // yield put({ type: 'SEARCH_ITEMS_RETRIEVE_SUCCESS', items: items.data })
 }
 export function* watcherSaga() {
     yield takeLatest("API_CALL_REQUEST", workerSaga);
@@ -40,12 +47,10 @@ export function* watcherSaga() {
     yield takeLatest('DECREMENT_COUNTER_REQUEST', decrementCounter)
     yield takeLatest('SEARCH_ITEMS_RETRIEVE', getSearchItems)
 }
-
 export function* workerSaga() {
     try {
         const response = yield call(fetchDog)
         const dog = response.data.message;
-
         yield put({ type: 'API_CALL_SUCCESS', dog })
     } catch (error) {
         console.log(error.message);

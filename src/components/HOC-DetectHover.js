@@ -14,7 +14,7 @@ const detectHover1 = (Component) => {
         )
     }
 }
-
+// Here we are using the render props (props.render)
 const DetectHover2 = (props) => {
     const [hovered, setHovered] = useState(false)
     return (

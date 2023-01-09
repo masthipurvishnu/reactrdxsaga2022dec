@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-
+/*
+create refs using useRef(null)
+get current node in useEffect
+    then attached the events to the node
+return [ref, value]
+*/
 const useHover = () => {
     const [value, setValue] = useState(false)
 

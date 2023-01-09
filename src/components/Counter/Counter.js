@@ -34,9 +34,19 @@ const Counter = (props) => {
     }
     // without useMemo, the largeNumber executes everytime a state/prop change. 
     const memorizeLargeNum = useMemo(largeNumber, [])
+    /*
+    useEffect called after component has been rendered, so you can access DOM from it. 
+    For example, this is important if you want to access DOM elements via refs.
+    useEffect + useState can be used to control updates.Even to break-up circular dependencies and prevent infinite update loops.
+    useEffect guarantees that it will not be fired if dependencies have not changed. useMemo does not give such guarantees.
 
+    useEffect is a collective call, async or not, it's collected after all components are rendered.
+    useMemo is a local call, which has only something to do with this component. 
+    You could just think of useMemo as another assignment statement with benefits to use the assignment from last update.
+    This means, useMemo is more urgent, and then useLayoutEffect and the last being useEffect.
 
-    const getFun = useCallback(() => { return 'Counter' }, []) /// when passed as normal fun it creates a new fun everytie and renders the components.
+    */
+    const getFun = useCallback(() => { return 'Counter' }, []) /// when passed as normal fun it creates a new fun everytime and renders the components.
     // when you pass useCallback memorized fun, it refs to the location and remembers...
 
     // const counter = useSelector(state => state.counter)

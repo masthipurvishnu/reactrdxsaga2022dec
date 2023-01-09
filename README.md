@@ -1,4 +1,19 @@
+# Free APIs
+// https://api.chucknorris.io/jokes/random
+// https://jsonplaceholder.typicode.com/users
+// https://dog.ceo/api/breeds/image/random
+
+https://react-testing-library-examples.netlify.app/
+
 # 
+Component communication:
+using props
+callback events
+context
+children - {props.children}
+Redux/Store
+ref/forwardRefs
+forceUpdate()
 ### Parent to child communication
 **Answer:**
 through props
@@ -24,7 +39,6 @@ Using context
 
 ### dynamically pass props to childern
 using {props.children} (parent to sw3 & child2 components in this examples)
-p
 ### when a prop changed from its parent, how will the component updates the data?
 Sol: forceUpdate() -- ?
 
@@ -54,13 +68,17 @@ C) Has props or state values [prop1, prop2, ..., state1, state2]: the side-effec
 ### what is HOC?
 Is a component which takes a component as argument, and enhances 
 its behaviour/features... 
+HOC for class components, wrap class components to enhance its behavaviour...
+In case of Functional components, use render props.
+create a render method and pass to HOC prop (it is like a prop callback to parent component)
+
 ### what is render prop and what is it good for?
 DetectHover1 & Header => HOC
 DetectHover2 & Footer => render props ---?
 (render props looks like old react way.. still we can use them here and there..)
 
 ### What are hooks and what problems it can solve?
-Hooks are life cycle methods. To find state, didMound, Didupdate etc 
+Hooks are life cycle methods. To find state, didMound, Didupdate etc. 
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -82,49 +100,44 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+===========
+# How to bind methods or event handlers in JSX callbacks?
+https://github.com/sudheerj/reactjs-interview-questions#how-to-bind-methods-or-event-handlers-in-jsx-callbacks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Why should we not update the state directly?
+If you try to update the state directly then it won't re-render the component.
+Instead use setState() method. It schedules an update to a component's state object. When state changes, the component responds by re-rendering.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# How to pass a parameter to an event handler or callback?
+<button onClick={() => this.handleClick(id)} /> 
+or
+<button onClick={this.handleClick.bind(this, id)} />
+or if the function is arraw funs
+<button onClick={this.handleClick(id)} />;
+handleClick = (id) => () => {
+  console.log("Hello, your ticket number is", id);
+};
 
-### `npm run eject`
+# What is the purpose of double curly braces in React's JSX syntax?
+{ .. } evaluates to an expression in JSX.
+{ key: value } implies a javascript object.
+<Image source={pic} style={{width: 193}}/>
+That's the JSX way of embedding variable. 
+pic can be any Javascript expression/variable/object.
+You can also do something like { 2+3 } and it will evaluate to { 5 }
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+{width: 193} is a Javascript object. And to embed this object in JSX you 
+need curly braces, hence, { {width: 193} }
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# stoppropagation-v/s-preventdefault
+https://stackoverflow.com/questions/5963669/whats-the-difference-between-event-stoppropagation-and-event-preventdefault
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# ISSUES
+1. combineReducer was not working...
+Sol: I was not reading store from reducerName... 
+counterReducer.counter
+searchReducer.data.items
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

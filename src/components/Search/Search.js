@@ -2,6 +2,7 @@ import { Autocomplete, Grid, Paper, styled, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ButtonItem from "../CustomHook/ButtonItem";
 
 const Search = (props) => {
     const style = {
@@ -30,10 +31,9 @@ const Search = (props) => {
     const [value, setValue] = useState([])
     const dispatch = useDispatch()
     const items = useSelector(state => state.searchReducer)
-    console.log(items.items);
-    // const items = items1 && items1?.filter(x => x?.address?.city === 'Gwenborough')
+    // this filter works
+    // const items = items1 != {} && items1.items?.filter(item => item?.address?.city === "Gwenborough")
 
-    // console.log(items);
     useEffect(() => {
         dispatch({ type: 'SEARCH_ITEMS_RETRIEVE' })
     }, [])
@@ -68,6 +68,8 @@ const Search = (props) => {
                             )
                         })}
                     </Stack>
+
+                    <ButtonItem />
                 </div>
             }
         </>

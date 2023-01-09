@@ -103,21 +103,24 @@ class App extends React.Component {
   render() {
     const { fetching, dog, handleRequestDogClick, error } = this.props;
     return (
-      <AppRouter>
-        <div className='App'>
-          <Header changeComponent={this.handleChangeComponent} />
-          <main className='main'>
-            {this.renderSwitch()}
-            {this.state.showComp === 'Dog' ?
-              <>
-              </>
-              : <>
-              </>
-            }
-          </main>
-          <Footer />
-        </div>
-      </AppRouter>
+      <>
+        <AppRouter>
+          <div className='App'>
+            <Header changeComponent={this.handleChangeComponent} />
+            <main className='main'>
+              <h1>vishnu</h1>
+              {/* {this.renderSwitch()} */}
+              {this.state.showComp === 'Dog' ?
+                <>
+                </>
+                : <>
+                </>
+              }
+            </main>
+          </div>
+        </AppRouter>
+        <Footer className='App-footer' />
+      </>
     );
   }
 }

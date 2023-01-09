@@ -42,14 +42,14 @@ class Header extends React.Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
                     <div>
-                        <Tabs indicatorColor="secondary" textColor="inherit" value={'/home'} >
+                        <Tabs sx={{ margin: 1 }} indicatorColor="secondary" textColor="inherit" value={'/home'} >
                             <Tab label="Home" value="/home" to="/home" component={Link} />
                             <Tab label="Posts" value={'/posts'} to={'/posts'} component={Link} />
                             <Tab label="Users" value={"/users"} to={'/users'} component={Link} />
-                            <Tab label={'About'} value={'/about'} to={'/about'} component={Link} />
                             <Tab label={'Dogs'} value={'/dogs'} to={'/dogs'} component={Link} />
                             <Tab label={'Counter'} value={'/counter'} to={'/counter'} component={Link} />
                             <Tab label={'Search'} value={'/search'} to={'/search'} component={Link} />
+                            <Tab label={'About'} value={'/about'} to={'/about'} component={Link} />
                         </Tabs>
                     </div>
                 </header>

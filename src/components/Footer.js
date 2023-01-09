@@ -8,10 +8,12 @@ const Footer = (props) => {
         }
         return (
             <>
-                <div style={style} >
-                    <h1>Footer</h1>
-                    <h2>Contact details ...</h2>
-                </div>
+                <footer style={style} className="App-footer">
+                    <div >
+                        <h1>Footer</h1>
+                        <h2>Contact details ...</h2>
+                    </div>
+                </footer>
             </>
         )
     }

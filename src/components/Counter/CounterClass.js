@@ -15,6 +15,9 @@ class CounterClass extends React.Component {
         document.title = `componentDidMount You clicked ${this.state.count} times`
     }
     componentDidUpdate() {
+        if (this.state.count >= 2) {
+            throw new Error('Error Simulation for test')
+        }
         document.title = `componentDidUpdate Yes, You clicked ${this.state.count} times`
     }
     componentWillUnmount() {

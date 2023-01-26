@@ -8,6 +8,7 @@ import CounterComponent from "../components/Counter/CounterComponent"
 import Dog from "../components/Dog"
 import Header from "../components/Header"
 import Search from "../components/Search/Search"
+import Shop from "../Features/Shop/Shop"
 import About from "./About"
 import Home from "./Home"
 import UserDetails from "./UserDetails"
@@ -22,12 +23,13 @@ const AppRouter = () => {
                     <Header />
                 </div>
                 <Routes>
-                    {/* <Route path="/" element={<Home />} /> */}
+                    <Route path="/" element={<Home />} />
                     <Route path="/home" element={<Home />} />
                     <Route path='/posts' element={<Posts />} >
                         <Route path="/posts/" element={<PostLists />} />
                         <Route path=":slug" element={<><PostLists /><Post /></>} />
                     </Route>
+                    <Route path='/shop' element={<Shop />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/users" element={<Users />} >
                         <Route

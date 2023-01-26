@@ -1,16 +1,46 @@
 # Free APIs
-// https://api.chucknorris.io/jokes/random
-// https://jsonplaceholder.typicode.com/users
-// https://dog.ceo/api/breeds/image/random
+<!-- https://api.chucknorris.io/jokes/random
+https://jsonplaceholder.typicode.com/
+https://jsonplaceholder.typicode.com/users
+https://dog.ceo/api/breeds/image/random
 
-https://react-testing-library-examples.netlify.app/
+// articles
+https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc 
+Exchange Rates
+https://api.coingecko.com/api/v3/exchange_rates
+USERS API
+https://reqres.in/api/users
+
+// Cloths
+https://fakestoreapi.com/products
+
+// Cats
+https://api.thecatapi.com/v1/breeds
+
+-->
+<!-- 
+React testing lib
+https://react-testing-library-examples.netlify.app/ 
+
+React Design Patterns
+1. Layout Pattern
+2. Controlled & Uncontrolled Pattern
+Controlled: which has its own state
+Uncontrolled: does not have state, depends on props & refs.
+
+3. HOC
+4. Custom Hooks
+5. Context api
+6. 
+
+-->
 
 # 
 Component communication:
 using props
 callback events
 context
-children - {props.children}
+children - {props.children} like slots/inheritance
 Redux/Store
 ref/forwardRefs
 forceUpdate()
@@ -80,7 +110,7 @@ DetectHover2 & Footer => render props ---?
 ### What are hooks and what problems it can solve?
 Hooks are life cycle methods. To find state, didMound, Didupdate etc. 
 
-
+<!-- ================================================================================================ -->
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

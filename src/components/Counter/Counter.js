@@ -52,7 +52,8 @@ const Counter = (props) => {
     // const counter = useSelector(state => state.counter)
     return (
         <>
-            <h1>{counter1}</h1>
+            <h2>Counter - fn</h2>
+            <h3>{counter1}</h3>
             <Welcome name={getFun()} />
             <h1>Large number: {memorizeLargeNum}</h1>
             <TextField label="CounterNumber"

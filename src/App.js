@@ -16,6 +16,8 @@ import { Grid, ListItem } from '@mui/material';
 import CustomForm from './components/refs/CustomForm';
 import Search from './components/Search/Search';
 import AppRouter from './Router/AppRouter';
+import { HelmetProvider } from 'react-helmet-async';
+import ErrorBoundray from './components/ErrorBoundary/ErrorBoundary';
 
 export const CountContext = createContext()
 class App extends React.Component {
@@ -100,26 +102,31 @@ class App extends React.Component {
       description: "Hello React Router V6..."
     }
   }
+  helmetContext = {}
   render() {
     const { fetching, dog, handleRequestDogClick, error } = this.props;
     return (
       <>
-        <AppRouter>
-          <div className='App'>
-            <Header changeComponent={this.handleChangeComponent} />
-            <main className='main'>
-              <h1>vishnu</h1>
-              {/* {this.renderSwitch()} */}
-              {this.state.showComp === 'Dog' ?
-                <>
-                </>
-                : <>
-                </>
-              }
-            </main>
-          </div>
-        </AppRouter>
-        <Footer className='App-footer' />
+        <ErrorBoundray>
+          <HelmetProvider context={this.helmetContext}>
+            <AppRouter>
+              <div className='App'>
+                <Header changeComponent={this.handleChangeComponent} />
+                <main className='main'>
+                  <h1>vishnu</h1>
+                  {/* {this.renderSwitch()} */}
+                  {this.state.showComp === 'Dog' ?
+                    <>
+                    </>
+                    : <>
+                    </>
+                  }
+                </main>
+              </div>
+            </AppRouter>
+            <Footer className='App-footer' />
+          </HelmetProvider>
+        </ErrorBoundray>
       </>
     );
   }

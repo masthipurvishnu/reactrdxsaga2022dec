@@ -16,7 +16,7 @@ class Dog extends React.Component {
         event.preventDefault(); // DO WE REALLY NEED THIS here?
     }
     componentDidMount() {
-        console.log(JSON.stringify(this.state.dogsReducer));
+        // console.log(JSON.stringify(this.state.dogsReducer));
     }
 
     dogName = (url) => {
@@ -58,7 +58,6 @@ Dog.propTypes = {
 }
 
 const mapStateToProps = state => {
-    console.log(JSON.stringify(state.dogsReducer));
     return {
         dog: state.dogsReducer.dog
     }

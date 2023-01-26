@@ -2,6 +2,8 @@ import { Autocomplete, Grid, Paper, styled, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { StyledComponent } from "styled-components";
+import ExchangeRates from "../../ExchangeRates/ExchangeRates";
 import ButtonItem from "../CustomHook/ButtonItem";
 
 const Search = (props) => {
@@ -27,6 +29,9 @@ const Search = (props) => {
         width: 600,
         margin: 'auto'
     }));
+    // const GridContainer = styled.div`
+    //         border: 1px solid gray
+    // `
     const data = [{ name: 'Vishnu', location: 'Plano' }, { name: 'Raja', location: 'Irving' }]
     const [value, setValue] = useState([])
     const dispatch = useDispatch()
@@ -40,38 +45,48 @@ const Search = (props) => {
     const [inputValue, setInputValue] = useState('');
     return (
         <>
-            {items?.items &&
-                <div style={style}>
-                    <h1>Search Component</h1>
-                    <Autocomplete
-                        inputValue={inputValue}
-                        onInputChange={(event, newInputValue) => {
-                            setInputValue(newInputValue);
-                        }}
-                        style={styleAutocomplete}
-                        id="search-box1"
-                        options={items.items}
-                        sx={{ width: 300 }}
-                        getOptionLabel={(option) => option.name}
-                        renderInput={(param) => <TextField {...param} label='name' />}
-                    />
-                    <h1>
-                        Results for '{inputValue}'
-                    </h1>
-                    <Stack spacing={2}>
-                        {items?.items && items.items.map(el => {
-                            if (el.name !== inputValue) return
-                            return (
-                                <Item key={el.id}>
-                                    {JSON.stringify(el)}
-                                </Item>
-                            )
-                        })}
-                    </Stack>
+            <Grid container spacing={{}} >
+                <Grid>
+                    <Item>
+                        {items?.items &&
+                            <div style={style}>
+                                <h1>Search Component</h1>
+                                <Autocomplete
+                                    inputValue={inputValue}
+                                    onInputChange={(event, newInputValue) => {
+                                        setInputValue(newInputValue);
+                                    }}
+                                    style={styleAutocomplete}
+                                    id="search-box1"
+                                    options={items.items}
+                                    sx={{ width: 300 }}
+                                    getOptionLabel={(option) => option.name}
+                                    renderInput={(param) => <TextField {...param} label='name' />}
+                                />
+                                <h1>
+                                    Results for '{inputValue}'
+                                </h1>
+                                <Stack spacing={2}>
+                                    {items?.items && items.items.map(el => {
+                                        if (el.name !== inputValue) return
+                                        return (
+                                            <Item key={el.id}>
+                                                {JSON.stringify(el)}
+                                            </Item>
+                                        )
+                                    })}
+                                </Stack>
 
-                    <ButtonItem />
-                </div>
-            }
+                                <ButtonItem />
+                            </div>
+                        }</Item>
+                </Grid>
+                <Grid>
+                    <Item>
+                        <ExchangeRates />
+                    </Item>
+                </Grid>
+            </Grid>
         </>
     )
 }

@@ -12,33 +12,46 @@ import { Provider } from 'react-redux';
 import dogsReducer from './reducers/dogsReducer'
 import counterReducer from './reducers/counterReducer'
 import searchReducer from './reducers/searchReducer'
+import exchangeRatesRecuder from './ExchangeRates/exchangeRatesReducer';
+import movieReducer from './Movies/movieReducer'
+import shopReducer from './Features/Shop/shopReducer';
 import { watcherSaga } from './saga/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const rootReducer = combineReducers({ dogsReducer, counterReducer, searchReducer })
+const rootReducer = combineReducers(
+  {
+    dogsReducer,
+    counterReducer,
+    searchReducer,
+    exchangeRatesRecuder,
+    movieReducer,
+    shopReducer
+  })
 //COMBINEREDUCER is not wokring - need to check this later
 let store = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(watcherSaga);
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-render(
+// render(
+//   <React.StrictMode>
+//     <Provider store={store}>
+//       <App />
+//     </Provider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

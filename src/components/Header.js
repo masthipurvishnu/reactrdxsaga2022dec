@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import logo from './../logo.svg';
-import detectHover from "./HOC-DetectHover";
 import { detectHover1 } from "./HOC-DetectHover";
 import { Button, Tab, Tabs } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -11,7 +10,8 @@ class Header extends React.Component {
         super(props)
         this.state = {
             showComponent: 'Dog',
-            mouseHoverFlag: false
+            mouseHoverFlag: false,
+            navIndex: '/home'
         }
     }
     handlerDogs = () => {
@@ -23,17 +23,25 @@ class Header extends React.Component {
     handlerSearch = () => {
         this.props.changeComponent('Search')
     }
+    hanldeNavChange = (event, index) => {
+        this.setState({ navIndex: index })
+    }
     onMouseHover = () => {
         console.log('on mouse hover');
         this.setState({ mouseHoverFlag: true })
     }
     onMouseOut = () => {
-        console.log('on mouse out');
         this.setState({ mouseHoverFlag: false })
+    }
+    componentDidMount() {
+        const path = window.location.pathname
+        this.setState({
+            navIndex: path === '/' ? '/home' : path
+        })
     }
     render() {
         const headerStyle = {
-            backgroundColor: this.props?.hovered ? 'background.paper' : 'background.paper'
+            backgroundColor: this.props?.hovered ? 'blue' : 'green'
         }
         return (
             <>
@@ -42,8 +50,11 @@ class Header extends React.Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
                     <div>
-                        <Tabs sx={{ margin: 1 }} indicatorColor="secondary" textColor="inherit" value={'/home'} >
+                        <Tabs sx={{ margin: 1 }}
+                            onChange={this.hanldeNavChange}
+                            indicatorColor="secondary" textColor="inherit" value={this.state.navIndex} >
                             <Tab label="Home" value="/home" to="/home" component={Link} />
+                            <Tab label="Shop" value={'/shop'} to={'/shop'} component={Link} />
                             <Tab label="Posts" value={'/posts'} to={'/posts'} component={Link} />
                             <Tab label="Users" value={"/users"} to={'/users'} component={Link} />
                             <Tab label={'Dogs'} value={'/dogs'} to={'/dogs'} component={Link} />

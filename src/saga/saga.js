@@ -1,5 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
 import axios from "axios";
+import getExchangeRates from './ExchangeRatesSaga';
+import getMovieList from '../Movies/movieSaga';
+import getProducts from '../Features/Shop/shopSaga';
 
 function fetchDog() {
     return axios({
@@ -9,7 +12,6 @@ function fetchDog() {
 }
 function* getCounter() {
     const counter = 110
-    console.log(counter);
     yield put({ type: 'GET_COUNTER_SUCCESS', counter })
 }
 function* incrementCounter(payload) {
@@ -41,13 +43,16 @@ function* getSearchItems() {
     // yield put({ type: 'SEARCH_ITEMS_RETRIEVE_SUCCESS', items: items.data })
 }
 export function* watcherSaga() {
-    yield takeLatest("API_CALL_REQUEST", workerSaga);
+    yield takeLatest("API_CALL_REQUEST", getDog);
     yield takeLatest('GET_COUNTER', getCounter)
     yield takeLatest('INCREMENT_COUNTER_REQUEST', incrementCounter)
     yield takeLatest('DECREMENT_COUNTER_REQUEST', decrementCounter)
     yield takeLatest('SEARCH_ITEMS_RETRIEVE', getSearchItems)
+    yield takeLatest('GET_EXCHANGERATES_REQUEST', getExchangeRates)
+    yield takeLatest('GET_MOVIE_LIST', getMovieList)
+    yield takeLatest('GET_PRODUCTS_LIST', getProducts)
 }
-export function* workerSaga() {
+export function* getDog() {
     try {
         const response = yield call(fetchDog)
         const dog = response.data.message;

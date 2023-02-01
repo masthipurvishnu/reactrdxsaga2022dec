@@ -15,7 +15,7 @@ class CounterPureComponent extends React.PureComponent {
     //     return this.state.counter !== nextState.counter // this is rerendering the component.
     // }
     componentDidMount() {
-        console.log('componentDidMount counter - ', this.state.counter);
+        // console.log('componentDidMount counter - ', this.state.counter);
         /*
         if it is NOT A PURE COMPONENT, here the state keeps updates every second and
         causes rerender of the entire component

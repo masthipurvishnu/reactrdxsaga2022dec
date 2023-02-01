@@ -5,12 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { StyledComponent } from "styled-components";
 import ExchangeRates from "../../ExchangeRates/ExchangeRates";
 import ButtonItem from "../CustomHook/ButtonItem";
+import Main from "../HOC-Ex/Main";
 
 const Search = (props) => {
     const style = {
-        border: '1px solid brown',
+        border: '2px solid green',
         height: 450,
         margin: 'auto'
+    }
+    const hocStyle = {
+        border: '1px solid red',
+        width: 1000,
+        margin: 5
     }
     const styleAutocomplete = {
         border: '0px solid green',
@@ -26,7 +32,6 @@ const Search = (props) => {
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-        width: 600,
         margin: 'auto'
     }));
     // const GridContainer = styled.div`
@@ -80,10 +85,13 @@ const Search = (props) => {
                                 <ButtonItem />
                             </div>
                         }</Item>
-                </Grid>
-                <Grid>
                     <Item>
                         <ExchangeRates />
+                    </Item>
+                </Grid>
+                <Grid style={hocStyle}>
+                    <Item>
+                        <Main />
                     </Item>
                 </Grid>
             </Grid>

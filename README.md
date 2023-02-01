@@ -1,7 +1,10 @@
 # Free APIs
 <!-- https://api.chucknorris.io/jokes/random
 https://jsonplaceholder.typicode.com/
+// USERS
 https://jsonplaceholder.typicode.com/users
+// TODOs
+https://jsonplaceholder.typicode.com/todos
 https://dog.ceo/api/breeds/image/random
 
 // articles

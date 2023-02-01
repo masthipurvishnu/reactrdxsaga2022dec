@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, ListItem } from '@mui/material';
+import { Grid } from '@mui/material';
 import Counter from "./Counter";
 import CounterClass from "./CounterClass";
 import VButton from "../CustomHook/VButton";
@@ -44,7 +44,14 @@ const CounterComponent = () => {
                     <Child1 name={'Raja'} />
                     <Child2 location={'Irving'} />
                 </ParentComponent>
-            </div></>
+            </div>
+            <div style={{
+                display: 'inline-block', float: 'right',
+                margin: '20px', border: '1px solid red',
+                height: 300, width: 400
+            }}>
+            </div>
+        </>
     )
 }
 export default CounterComponent

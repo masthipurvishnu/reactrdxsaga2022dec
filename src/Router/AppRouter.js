@@ -9,6 +9,7 @@ import Dog from "../components/Dog"
 import Header from "../components/Header"
 import Search from "../components/Search/Search"
 import Shop from "../Features/Shop/Shop"
+import Stream from "../Stream/Stream"
 import About from "./About"
 import Home from "./Home"
 import UserDetails from "./UserDetails"
@@ -41,6 +42,7 @@ const AppRouter = () => {
                         />
                     </Route>
                     <Route path={'/search'} element={<Search />} />
+                    <Route path={'/stream'} element={<Stream />} />
                     <Route path={'/dogs'} element={<Dog />} />
                     <Route path={'/counter'} element={<CounterComponent />} />
                 </Routes>

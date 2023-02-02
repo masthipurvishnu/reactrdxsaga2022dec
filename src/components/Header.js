@@ -41,7 +41,7 @@ class Header extends React.Component {
     }
     render() {
         const headerStyle = {
-            backgroundColor: this.props?.hovered ? 'blue' : 'green'
+            backgroundColor: this.props?.hovered ? '#fff' : 'green'
         }
         return (
             <>
@@ -60,6 +60,7 @@ class Header extends React.Component {
                             <Tab label={'Dogs'} value={'/dogs'} to={'/dogs'} component={Link} />
                             <Tab label={'Counter'} value={'/counter'} to={'/counter'} component={Link} />
                             <Tab label={'Search'} value={'/search'} to={'/search'} component={Link} />
+                            <Tab label={'Stream'} value={'/stream'} to={'/stream'} component={Link} />
                             <Tab label={'About'} value={'/about'} to={'/about'} component={Link} />
                         </Tabs>
                     </div>

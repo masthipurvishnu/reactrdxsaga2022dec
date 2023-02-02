@@ -21,7 +21,12 @@ https://fakestoreapi.com/products
 https://api.thecatapi.com/v1/breeds
 
 -->
-<!-- 
+<!--
+
+    // this updates realtime data from firebase db
+    // real time db
+    // https://console.firebase.google.com/u/0/project/stream-1a578/database/stream-1a578-default-rtdb/data
+     
 React testing lib
 https://react-testing-library-examples.netlify.app/ 
 

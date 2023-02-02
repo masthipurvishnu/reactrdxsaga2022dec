@@ -4,6 +4,7 @@ import { ref, onValue } from 'firebase/database'
 import { Table } from 'react-bootstrap'
 import { InsertEmoticon } from "@mui/icons-material";
 import StartFirebase from "./StartFirebase";
+import SocketIOClient from "./SocketIOClient";
 const db = StartFirebase()
 class RealTimeData extends Component {
     constructor() {
@@ -19,18 +20,15 @@ class RealTimeData extends Component {
             snapshot.forEach(childSnapshot => {
                 let keyName = childSnapshot.key
                 let data = childSnapshot.val()
-                console.log(data);
                 records.push({ 'key': keyName, 'data': data })
             })
             this.setState({ tableData: records })
-            // console.log(records);
         })
     }
     // this updates real time data from firebase db
     // https://console.firebase.google.com/u/0/project/stream-1a578/database/stream-1a578-default-rtdb/data
     render() {
         const data = this.state?.tableData
-        console.log(data?.length);
         return (
             <>
                 <h3>{'Real Time Data'}</h3>
@@ -56,6 +54,7 @@ class RealTimeData extends Component {
                         })}
                     </tbody>
                 </Table>
+                <SocketIOClient />
             </>
         )
     }

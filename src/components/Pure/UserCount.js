@@ -11,7 +11,8 @@ class UserCount extends Component {
     componentDidUpdate() {
         // console.log(this.props.users);
     }
-    // DONT REMOVE THIS
+    // DONT REMOVE THIS, YOU CAN MAKE THIS REGULAR COMPONENT AS PURE
+    // WITH THE HELP OF shouldComponentUpdate.
     // shouldComponentUpdate(newProps, newState) {
     //     if (newProps.users !== this.state.users) {
     //         return true
@@ -25,7 +26,7 @@ class UserCount extends Component {
         console.log('Usercount Regular componet renders', this.props.users.length);
         return (
             <>
-                <h4>Regular Component</h4>
+                <h4>UserCount Regular Component</h4>
                 <div className="ui blue message">
                     {/* we have fetched {this.state.userCount} users */}
                     we have fetched {this.props.users.length} users

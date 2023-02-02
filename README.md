@@ -22,11 +22,25 @@ https://api.thecatapi.com/v1/breeds
 
 -->
 <!--
-
+STREAM DATA
+1. Firebase - RealTime Database
     // this updates realtime data from firebase db
     // real time db
     // https://console.firebase.google.com/u/0/project/stream-1a578/database/stream-1a578-default-rtdb/data
      
+2. socket.io =>
+ a. Establish connection from server to Client.
+ 
+ b. emit events from server
+ c. at client, listen on specific events from server
+ d. udate state & render
+    * subscribe to events and update the state
+    * render the line chart using the state
+     // Charts
+     https://recharts.org/en-US
+
+
+
 React testing lib
 https://react-testing-library-examples.netlify.app/ 
 

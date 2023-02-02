@@ -1,10 +1,10 @@
 import React from "react";
 
 const Users = ({ users }) => {
-    console.log('User Component - ', users?.length);
+    console.log('User Component (memo) - ', users?.length);
     return (
         <>
-            <h3>Users Component</h3>
+            <h3>Users Component (memo) </h3>
             <div style={{ display: 'flex' }}>
                 {users && users.map((user, i) => {
                     return (

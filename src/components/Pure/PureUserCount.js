@@ -29,6 +29,7 @@ class PureUserCount extends PureComponent {
                     {/* if it is primitive it renders once, as users is an object,
                      it renders more than once as i voids pure*/}
                     <button onClick={this.incrementUserCount}>Increment</button>
+                    {/* When this button is clicked, only this component will be rendered as no other impacts. */}
                 </div>
             </>
         )

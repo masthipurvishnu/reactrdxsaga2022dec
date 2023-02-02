@@ -19,6 +19,11 @@ const Main = () => {
         <div className="ui comtainer renders">
             <div>Hello, Good {flag ? 'Morning' : 'Afternoon'}</div>
             <button onClick={() => setFlag(!flag)}>Toggle Message</button>
+            {/*When Toggle Message button cliecked, 
+            (only this main component and UserCount regular component will be 
+                rendered, not the PureUserCount and UsersMemo as these are pure components)
+                main component rendered -count - 6, and
+                Usercount Regular componet renders 6 */}
             <PureUserCount users={users} />
             <div></div>
             <UserCount users={users} />

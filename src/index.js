@@ -1,41 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { render } from 'react-dom'
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { render } from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { createStore, applyMiddleware, compose, combineReducers } from "redux"
-import createSagaMiddleware from '@redux-saga/core';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import createSagaMiddleware from "@redux-saga/core";
+import { Provider } from "react-redux";
 
-import dogsReducer from './reducers/dogsReducer'
-import counterReducer from './reducers/counterReducer'
-import searchReducer from './reducers/searchReducer'
-import exchangeRatesRecuder from './ExchangeRates/exchangeRatesReducer';
-import movieReducer from './Movies/movieReducer'
-import shopReducer from './Features/Shop/shopReducer';
-import { watcherSaga } from './saga/saga';
+import dogsReducer from "./reducers/dogsReducer";
+import counterReducer from "./reducers/counterReducer";
+import searchReducer from "./reducers/searchReducer";
+import exchangeRatesRecuder from "./ExchangeRates/exchangeRatesReducer";
+import movieReducer from "./Movies/movieReducer";
+import shopReducer from "./Features/Shop/shopReducer";
+import { watcherSaga } from "./saga/saga";
 
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-const rootReducer = combineReducers(
-  {
-    dogsReducer,
-    counterReducer,
-    searchReducer,
-    exchangeRatesRecuder,
-    movieReducer,
-    shopReducer
-  })
-//COMBINEREDUCER is not wokring - need to check this later
-let store = createStore(
-  rootReducer,
-  applyMiddleware(sagaMiddleware)
-)
+const rootReducer = combineReducers({
+  dogsReducer,
+  counterReducer,
+  searchReducer,
+  exchangeRatesRecuder,
+  movieReducer,
+  shopReducer,
+});
+let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(watcherSaga);
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // render(
 //   <React.StrictMode>
@@ -56,4 +51,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(console.log);

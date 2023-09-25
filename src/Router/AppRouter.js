@@ -5,7 +5,7 @@ import PostLists from "../components/Blogs/PostLists";
 import Posts from "../components/Blogs/Posts";
 import Counter from "../components/Counter/Counter";
 import CounterComponent from "../components/Counter/CounterComponent";
-import Dog from "../components/Dog";
+import Dog from "./../Features/dogs/Dog";
 import Header from "../components/Header";
 import Search from "../components/Search/Search";
 import Shop from "../Features/Shop/Shop";

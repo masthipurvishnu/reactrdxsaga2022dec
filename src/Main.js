@@ -3,9 +3,9 @@ import "./App.css";
 
 import { connect } from "react-redux";
 import Header from "./components/Header";
-import Dog from "./components/Dog";
+import Dog from "./Features/dogs/Dog";
 import Counter from "./components/Counter/Counter";
-import DogDetails from "./components/DogDetails";
+import DogDetails from "./Features/dogs/DogDetails";
 import CounterClass from "./components/Counter/CounterClass";
 import ParentComponent from "./components/Parent";
 import Child1 from "./components/Child1";

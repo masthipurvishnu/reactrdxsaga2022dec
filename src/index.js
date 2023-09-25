@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
 import { Provider } from "react-redux";
 
-import dogsReducer from "./reducers/dogsReducer";
+import dogsReducer from "./Features/dogs/dogsReducer";
 import counterReducer from "./reducers/counterReducer";
 import searchReducer from "./reducers/searchReducer";
 import exchangeRatesRecuder from "./ExchangeRates/exchangeRatesReducer";

@@ -1,45 +1,48 @@
-import React, { createContext } from 'react';
-import './App.css';
+import React, { createContext } from "react";
+import "./App.css";
 
-import { connect } from 'react-redux'
-import Header from './components/Header'
-import Dog from './components/Dog';
-import Counter from './components/Counter/Counter';
-import DogDetails from './components/DogDetails';
-import CounterClass from './components/Counter/CounterClass';
-import ParentComponent from './components/Parent';
-import Child1 from './components/Child1';
-import Child2 from './components/Child2';
-import Footer from './components/Footer';
-import VButton from './components/CustomHook/VButton';
-import { Grid, ListItem } from '@mui/material';
-import CustomForm from './components/refs/CustomForm';
-import Search from './components/Search/Search';
-import AppRouter from './Router/AppRouter';
-import { HelmetProvider } from 'react-helmet-async';
-import ErrorBoundray from './components/ErrorBoundary/ErrorBoundary';
+import { connect } from "react-redux";
+import Header from "./components/Header";
+import Dog from "./components/Dog";
+import Counter from "./components/Counter/Counter";
+import DogDetails from "./components/DogDetails";
+import CounterClass from "./components/Counter/CounterClass";
+import ParentComponent from "./components/Parent";
+import Child1 from "./components/Child1";
+import Child2 from "./components/Child2";
+import Footer from "./components/Footer";
+import VButton from "./components/CustomHook/VButton";
+import { Grid, ListItem } from "@mui/material";
+import CustomForm from "./components/refs/CustomForm";
+import Search from "./components/Search/Search";
+import AppRouter from "./Router/AppRouter";
+import { HelmetProvider } from "react-helmet-async";
+import ErrorBoundray from "./components/ErrorBoundary/ErrorBoundary";
 
-export const CountContext = createContext()
+export const CountContext = createContext();
 class Main extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      showComp: 'Search'
-    }
+      showComp: "Search",
+    };
   }
   handleChangeComponent = (name) => {
-    this.state.showComp = name
-    this.forceUpdate()
-  }
+    this.state.showComp = name;
+    this.forceUpdate();
+  };
   dogName = (url) => {
-    return (url?.substring(url?.indexOf('breeds') + 7, url?.lastIndexOf('/')))?.toUpperCase()
-  }
+    return url
+      ?.substring(url?.indexOf("breeds") + 7, url?.lastIndexOf("/"))
+      ?.toUpperCase();
+  };
   renderSwitch = () => {
     const { fetching, dog, handleRequestDogClick, error } = this.props;
     switch (this.state.showComp) {
-      case 'Dog':
+      case "Dog":
         return (
-          <>DOG
+          <>
+            DOG
             <Dog
               fetching={fetching}
               parentCallbackOnRequestDog={handleRequestDogClick}
@@ -48,61 +51,68 @@ class Main extends React.Component {
               <DogDetails />
             </CountContext.Provider>
           </>
-        )
-      case 'Counter':
+        );
+      case "Counter":
         return (
           <>
             COUNTER
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-              <Grid border={'1px solid red'} margin={2} item xs>
+            <Grid
+              container
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              <Grid border={"1px solid red"} margin={2} item xs>
                 <CounterClass />
               </Grid>
-              <Grid border={'1px solid red'} margin={2}
-                item xs={4}>
+              <Grid border={"1px solid red"} margin={2} item xs={4}>
                 <Counter />
               </Grid>
-              <Grid border={'1px solid red'} margin={2}
-                item xs>
+              <Grid border={"1px solid red"} margin={2} item xs>
                 <div>
                   <VButton />
                   <CustomForm />
                 </div>
               </Grid>
             </Grid>
-            <div style={{ display: 'inline-block', border: '1px solid red', margin: '20px' }}>
+            <div
+              style={{
+                display: "inline-block",
+                border: "1px solid red",
+                margin: "20px",
+              }}
+            >
               <ParentComponent flag={true} />
             </div>
-            <div style={{ display: 'inline-block', border: '1px solid green' }}>
-              <ParentComponent flag={false} >
-                <Child1 name={'Raja'} />
-                <Child2 location={'Irving'} />
+            <div style={{ display: "inline-block", border: "1px solid green" }}>
+              <ParentComponent flag={false}>
+                <Child1 name={"Raja"} />
+                <Child2 location={"Irving"} />
               </ParentComponent>
             </div>
           </>
-        )
-      case 'Search':
+        );
+      case "Search":
         return (
-          <>SEARCH
+          <>
+            SEARCH
             <Search />
           </>
-        )
+        );
       default:
-        return (
-          <>Something broken..!</>
-        )
+        return <>Something broken..!</>;
     }
-  }
+  };
   blogPosts = {
-    '1': {
+    1: {
       title: "First Blog Post",
-      description: "Lorem ipsum dolor..."
+      description: "Lorem ipsum dolor...",
     },
-    '2': {
+    2: {
       title: "Second Blog Post",
-      description: "Hello React Router V6..."
-    }
-  }
-  helmetContext = {}
+      description: "Hello React Router V6...",
+    },
+  };
+  helmetContext = {};
   render() {
     const { fetching, dog, handleRequestDogClick, error } = this.props;
     return (
@@ -110,33 +120,28 @@ class Main extends React.Component {
         <ErrorBoundray>
           <HelmetProvider context={this.helmetContext}>
             <AppRouter>
-              <div className='App'>
-                <Header changeComponent={this.handleChangeComponent} />
-                <main className='main'>
+              <div className="App">
+                {/* <Header changeComponent={this.handleChangeComponent} /> */}
+                <main className="main">
                   <h1>vishnu</h1>
                   {/* {this.renderSwitch()} */}
-                  {this.state.showComp === 'Dog' ?
-                    <>
-                    </>
-                    : <>
-                    </>
-                  }
+                  {this.state.showComp === "Dog" ? <>1111</> : <>asdfasdf</>}
                 </main>
               </div>
             </AppRouter>
-            <Footer className='App-footer' />
+            <Footer className="App-footer" />
           </HelmetProvider>
         </ErrorBoundray>
       </>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     fetching: state.fetching,
     dog: state.dog,
-    error: state.error
-  }
-}
+    error: state.error,
+  };
+};
 
-export default connect(mapStateToProps)(Main)
+export default connect(mapStateToProps)(Main);

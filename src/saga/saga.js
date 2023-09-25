@@ -3,6 +3,13 @@ import axios from "axios";
 import getExchangeRates from "./ExchangeRatesSaga";
 import getMovieList from "../Movies/movieSaga";
 import getProducts from "../Features/Shop/shopSaga";
+import getTodos from "../Features/todos/todosSaga";
+import getUsersDetails from "../Features/users/usersSaga";
+import {
+  getStartingCounter,
+  incrementCounterValue,
+  decrementCounterValue,
+} from "../Features/counter/counterSaga";
 
 function fetchDog() {
   return axios({
@@ -59,6 +66,11 @@ export function* watcherSaga() {
   yield takeLatest("GET_EXCHANGERATES_REQUEST", getExchangeRates);
   yield takeLatest("GET_MOVIE_LIST", getMovieList);
   yield takeLatest("GET_PRODUCTS_LIST", getProducts);
+  yield takeLatest("TODOS_REQUEST", getTodos);
+  yield takeLatest("USERS_REQUEST", getUsersDetails);
+  yield takeLatest("GET_COUNTER_REQUEST", getStartingCounter);
+  yield takeLatest("INCREMENT_COUNTER_REQUEST", incrementCounterValue);
+  yield takeLatest("DECREMENT_COUNTER_REQUEST", decrementCounterValue);
 }
 export function* getDog() {
   try {

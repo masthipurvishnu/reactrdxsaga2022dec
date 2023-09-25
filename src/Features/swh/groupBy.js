@@ -157,7 +157,7 @@ function GroupBy() {
   }
   return (
     <div className="App">
-      <div>{"Main Content"}</div>
+      <div>{"GroupBy Main Content"}</div>
       <div style={{ margin: "20px" }}>
         <button onClick={jsMethods}>{"Ops"}</button>
       </div>

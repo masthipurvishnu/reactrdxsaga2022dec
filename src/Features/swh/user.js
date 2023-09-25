@@ -5,10 +5,10 @@ class User {
   }
 }
 function printName(user) {
-  console.log(`User's name is ${user.name}`);
+  // console.log(`User's name is ${user.name}`);
 }
 function printAge(user) {
-  console.log(`User is ${user.age} years of age`);
+  // console.log(`User is ${user.age} years of age`);
 }
 
 export default User;

@@ -15,8 +15,10 @@ import searchReducer from "./reducers/searchReducer";
 import exchangeRatesRecuder from "./ExchangeRates/exchangeRatesReducer";
 import movieReducer from "./Movies/movieReducer";
 import shopReducer from "./Features/Shop/shopReducer";
+import todosReducer from "./Features/todos/todosReducer";
+import usersReducer from "./Features/users/usersReducer";
 import { watcherSaga } from "./saga/saga";
-
+import counterValueReducer from "./Features/counter/counterReducer";
 const sagaMiddleware = createSagaMiddleware();
 // const reduxDevTools =
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -27,6 +29,9 @@ const rootReducer = combineReducers({
   exchangeRatesRecuder,
   movieReducer,
   shopReducer,
+  todosReducer,
+  usersReducer,
+  counterValueReducer,
 });
 let store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(watcherSaga);

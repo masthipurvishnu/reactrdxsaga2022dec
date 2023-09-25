@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import logo from "./../logo.svg";
 import { detectHover1 } from "./HOC-DetectHover";
-import { Button, Tab, Tabs } from "@mui/material";
+import { Button, Menu, MenuItem, Tab, Tabs } from "@mui/material";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
@@ -12,6 +12,8 @@ class Header extends React.Component {
       showComponent: "Dog",
       mouseHoverFlag: false,
       navIndex: "/home",
+      open: false,
+      anchorEl: null | HTMLElement,
     };
   }
   handlerDogs = () => {
@@ -39,6 +41,12 @@ class Header extends React.Component {
       navIndex: path === "/" ? "/home" : path,
     });
   }
+  onMouseOver1 = (e) => {
+    e.preventDefault();
+    // console.log("onmouseover");
+    this.setState({ open: !this.state.open });
+  };
+  options = ["Todo List", "Users List", "Counter"];
   render() {
     const headerStyle = {
       backgroundColor: this.props?.hovered ? "#fff" : "green",
@@ -48,6 +56,25 @@ class Header extends React.Component {
         <header style={headerStyle} className={"App-header"}>
           <div style={{ textAlign: "left", paddingTop: "20px" }}>
             <img src={logo} className="App-logo" alt="logo" />
+            {/* <Menu
+              sx={{ top: "-560px" }}
+              id="lock-menu"
+              anchorEl={this.state.anchorEl}
+              open={this.state.open}
+              MenuListProps={{
+                "aria-labelledby": "lock-button",
+                role: "listbox",
+              }}
+            >
+              {this.options.map((option, index) => (
+                <MenuItem
+                  key={option}
+                  disabled={index === 0}
+                >
+                  {option}
+                </MenuItem>
+              ))}
+            </Menu> */}
           </div>
           <div>
             <Tabs
@@ -57,7 +84,13 @@ class Header extends React.Component {
               textColor="inherit"
               value={this.state.navIndex}
             >
-              <Tab label="Home" value="/home" to="/home" component={Link} />
+              <Tab
+                label="Home"
+                value="/home"
+                to="/home"
+                component={Link}
+                onMouseOver={this.onMouseOver1}
+              ></Tab>
               <Tab label="Shop" value={"/shop"} to={"/shop"} component={Link} />
               <Tab
                 label="Posts"

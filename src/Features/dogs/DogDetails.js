@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import { Card, CardContent } from "@mui/material";
 
 import { CountContext } from "../../App";
 import { connect, useSelector } from "react-redux";
 import { DogContext } from "./Dog";
+import { Suspense } from "react";
+import { Spinner } from "react-bootstrap";
 const DogDetails = (props) => {
   // const name = useContext(CountContext)
   const name = useContext(DogContext);
@@ -19,13 +21,22 @@ const DogDetails = (props) => {
     justifyContent: "center",
   };
   const dog = useSelector((state) => state.dogsReducer.dog);
+  //this is only for quick test on useeffect and usememo with empty dependency
+  useEffect(() => {
+    // console.log(props?.name);
+  }, []);
+  const n1 = useMemo(() => {
+    // console.log(props?.name);
+    return props?.name;
+  }, []);
   return (
     <>
       <div style={divStyle}>
+        vv2 - {n1}
         <Card
           sx={{
             fontSize: 14,
-            border: "1px solid red",
+            border: "0px solid red",
             textAlign: "center",
           }}
           style={cardStyles}
